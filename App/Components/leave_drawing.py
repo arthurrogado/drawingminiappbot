@@ -34,7 +34,7 @@ class LeaveDrawing(BaseComponent):
         self.bot.register_next_step_handler(msg_confirmation, self.confirm_leave_drawing)
 
     def confirm_leave_drawing(self, message):
-        if message.text == "Yes":
+        if "Yes" in message.text:
             self.bot.send_message(self.userid, "⌛️ Leaving drawing!")
             # verify if the user is participating in the drawing
 
