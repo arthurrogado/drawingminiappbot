@@ -1,0 +1,6 @@
+BOT_TOKEN = '12345678910:AAAAAAAAAAAAAAAAAAAAAAAAAAAA' # arreisbot test
+
+# Database
+DB_NAME = 'App/Database/database.db'
+
+# set another dabatase information if needed (like host, port, user, password, etc.)

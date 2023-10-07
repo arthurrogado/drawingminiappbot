@@ -1,0 +1,19 @@
+#drawingsTable {
+    margin: 10px 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#drawingsTable thead th {
+    background-color: var(--tg-theme-secondary-bg-color);
+    padding: 10px;
+}
+
+#drawingsTable tbody td {
+    padding: 10px;
+    border-bottom: 1px solid var(--tg-theme-hint-color);
+}
+#drawingsTable tbody tr:hover {
+    background-color: var(--tg-theme-secondary-bg-color);
+    cursor: pointer;
+}

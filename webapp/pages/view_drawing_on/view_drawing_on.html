@@ -1,0 +1,32 @@
+<div class="card">
+    <h3>View drawing on
+    </h3>
+    
+    <form class="form">
+        <input type="text" placeholder="Type the name" name="name" required disabled>
+        <textarea name="description" rows="3" placeholder="Type a description" disabled></textarea>
+    </form>
+
+    <div class="actions">
+        <button class="button" id="leaveDraw">Leave drawing</button>
+    </div>
+    <a href="#" navigateto="drawings_on" class="link center">My drawings ON</a>
+</div>
+
+<div class="card qrcode">
+    <img src="" alt="qrcode to this drawing">
+    <div class="shareArea">
+        <button class="button" id="shareLink">🔗 Share link</button>
+        <div id="drawingIdCard">
+            <span class="material-symbols-outlined">
+                content_copy
+            </span>
+            <span id="drawingId"></span>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+
+    <h3>Participants:</h3> <span id="numberOfParticipants">-</span>
+</div>
