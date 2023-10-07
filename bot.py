@@ -55,6 +55,8 @@ def answer(msg):
             LeaveDrawing(bot, userid, response)
         elif action == "do_drawing":
             DoDrawing(bot, userid, response)
+        elif action == "send_message_to_all":
+            SendMessageToAll(bot, userid, response)
 
     except Exception as e:
         print("#Error", e)

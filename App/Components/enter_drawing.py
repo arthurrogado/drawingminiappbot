@@ -19,9 +19,11 @@ class EnterDrawing(BaseComponent):
             drawing = drawing_list[0]
             if drawing.get('from_userid') == self.userid:
                 self.bot.send_message(self.userid, "⚠️ You can't enter your own drawing!")
+                self.goMainMenu(self.userid)
                 return
         else:
             self.bot.send_message(self.userid, "❌ I can't find this drawing!")
+            self.goMainMenu(self.userid)
             return
 
         # verify if the user is already participating in the drawing
