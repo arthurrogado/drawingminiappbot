@@ -2,3 +2,4 @@ config.py
 venv/
 __pycache__/
 squarecloud.app
+database.db
