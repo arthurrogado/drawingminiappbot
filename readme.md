@@ -100,7 +100,7 @@ Navigation in webapp is basically done by changing the content of main tag with 
 3. loadRoute():
     - fetch for html, css and js files, and append them into main tag.
 
-
+All pages must be in /pages folder, and must have the same name (like /pages/home.html, /pages/home.css, /pages/home.js). This is because loadRoute() function will look for these files in this way.
 
 ## License
 This project is licensed under the MIT license. See the LICENSE file for more information.
