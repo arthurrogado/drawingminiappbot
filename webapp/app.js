@@ -42,7 +42,10 @@ const getStartParams = () => {
     return startParams
 }
 
+// NAVIGATION
+
 const navigateTo = (route, params = null) => {
+    // This function changes the url and calls the router function to process the url
     webapp.BackButton.show();
     // join params (object) and getParams() (object too)
     // to maintain the params that are already in the url (like data from bot)
