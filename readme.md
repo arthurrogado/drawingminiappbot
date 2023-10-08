@@ -17,7 +17,7 @@ Learn as a developer:
 
 ## How to use (setup step-by-step)
 
-### 1. Deploy webapp directory into a web server or run it locally and use some tunnel service like ngrok to make it https.
+## 1. Deploy webapp directory into a web server or run it locally and use some tunnel service like ngrok to make it https.
 
 #### 1.1. Ngrok like:
 - to run a localhost server, you can use the following command at webapp directory: `python -m http.server 8080` (change 8080 to the port that you want to use)
