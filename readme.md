@@ -74,7 +74,12 @@ C:.
 - Components: contains different menus. Like main_menu.py contains a MainMenu class, that is responsible to show the main menu and handle its commands; get_my_drawings.py > GetMyDrawings class: get drawings from user from database, organize into a object like data, and send this stringfied data to webapp by markup_webapp_button() function (App/Utils/markups.py).
 - Config: contains config.py file, that contains sensitive data like bot token.
 - Database: contains database.py file, that holds DB class, and is responsible to connect to database and execute queries. There are also some common methods to execute CRUD.
-- Utils: contains some common functions, like constants.py, that holds some constants like webapp url, etc. There are also some common methods to execute CRUD.
+    - Like "model" in MVC, Draw.py, fro example, contains a Draw class, that is responsible to hold data from a draw, and also to execute CRUD operations related to a draw.
+- Utils: 
+    - funcitons.py: some common functions that can be used in any part of the code, like dict_to_url_params().
+    - markups.py: contains functions to create markups (like keyboard or inline buttons) to be used in bot messages, as well a function to create a keyboard button that will send data to webapp (or open a webapp with custom data).
+    - constants.py: contains some constants that can be used in any part of the code, like WEBAPP_URL, CLOUD_ID, etc.
+
 
 ## License
 This project is licensed under the MIT license. See the LICENSE file for more information.
