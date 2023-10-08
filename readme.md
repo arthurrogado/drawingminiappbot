@@ -15,25 +15,25 @@ Learn as a developer:
     - Server side: python bot with pyTelegramBotAPI, as well as a simple CRUD and a miniframework (organize your code in a simple but strong way, using modules and classes, placing your code in the right place)
     - Client side: vanilla javascript, in a very simple "miniframework" to develop a SPA (Single Page Application) like app.
 
-# How to use (setup step-by-step)
+## How to use (setup step-by-step)
 
-## 1. Deploy webapp directory into a web server or run it locally and use some tunnel service like ngrok to make it https.
+### 1. Deploy webapp directory into a web server or run it locally and use some tunnel service like ngrok to make it https.
 
-### 1.1. Ngrok like:
-1. to run a localhost server, you can use the following command at webapp directory: `python -m http.server 8080` (change 8080 to the port that you want to use)
-2. you can use the following command: `ngrok http 8080` (change 8080 to the port that you are using)
-3. it will generate a https url, that you can use to configure your bot.
-
-or
-
-### 1.2. Netlify like:
-1. create a account at https://app.netlify.com/
-2. upload into netlify and it will generate a https url, that you can use to configure your bot.
+- 1.1. Ngrok like:
+    - to run a localhost server, you can use the following command at webapp directory: `python -m http.server 8080` (change 8080 to the port that you want to use)
+    - you can use the following command: `ngrok http 8080` (change 8080 to the port that you are using)
+    - it will generate a https url, that you can use to configure your bot.
 
 or
 
-### 1.3. Use our webapp used in this project:
-- https://drawing-mini-app-bot.netlify.app/
+- 1.2. Netlify like:
+    - create a account at https://app.netlify.com/
+    - upload into netlify and it will generate a https url, that you can use to configure your bot.
+
+or
+
+- 1.3. Use our webapp used in this project:
+    - https://drawing-mini-app-bot.netlify.app/
 
 ### 2. Setting variables to the bot:
 - 2.1. Paste the webapp url into the file `App/Utils/Constants.py` (WEBAPP_URL variable)
@@ -47,7 +47,11 @@ or
 - 2.3. Create a Telegram Group or Channel and add its id into `App/Utils/Constants.py` (CLOUD_ID variable)
     - 2.3.1. Remember to add the bot into the group or channel
 
-### 3. Run the bot using the following command at top directory: `python -m bot.py`
+### 3. Run the bot 
+- Make sure pyTelegramBotAPI is installed with `pip install pyTelegramBotAPI`
+- Using the following command at top directory: `python -m bot.py`
+
+
 
 ## Understanding the code and some concepts
 
@@ -95,6 +99,8 @@ Navigation in webapp is basically done by changing the content of main tag with 
 
 3. loadRoute():
     - fetch for html, css and js files, and append them into main tag.
+
+
 
 ## License
 This project is licensed under the MIT license. See the LICENSE file for more information.
