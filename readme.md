@@ -4,6 +4,7 @@ This is a simple drawing (like a raffle) bot, that can help manage, participate 
 The bot code can lead you to understand about how integrate a bot with a mini app (webapp).
 
 This project is built using Python, using @pyTelebramBotAPI library, that runs a Telebram Bot (server side), and Vanilla Javascript to implement a Telegram Mini App (client side).
+It also uses some google services, like Material Icons and Google Charts for QRCode.
 
 ## Features
 Usability:
