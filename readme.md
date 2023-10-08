@@ -18,34 +18,35 @@ Learn as a developer:
 ## How to use (setup step-by-step)
 
 ### 1. Deploy webapp directory into a web server or run it locally and use some tunnel service like ngrok to make it https.
-    #### 1.1. Ngrok like:
-        - to run a localhost server, you can use the following command at webapp directory: `python -m http.server 8080` (change 8080 to the port that you want to use)
-        - you can use the following command: `ngrok http 8080` (change 8080 to the port that you are using)
-        - it will generate a https url, that you can use to configure your bot.
 
-    or
+#### 1.1. Ngrok like:
+- to run a localhost server, you can use the following command at webapp directory: `python -m http.server 8080` (change 8080 to the port that you want to use)
+- you can use the following command: `ngrok http 8080` (change 8080 to the port that you are using)
+- it will generate a https url, that you can use to configure your bot.
 
-    1.2. Netlify like:
-        - create a account at https://app.netlify.com/
-        - upload into netlify and it will generate a https url, that you can use to configure your bot.
+or
 
-    or
+#### 1.2. Netlify like:
+- create a account at https://app.netlify.com/
+- upload into netlify and it will generate a https url, that you can use to configure your bot.
 
-    1.3. Use our webapp used in this project:
-        - https://drawing-mini-app-bot.netlify.app/
+or
 
-2. Setting variables to the bot:
-    2.1. Paste the webapp url into the file `App/Utils/Constants.py` (WEBAPP_URL variable)
+#### 1.3. Use our webapp used in this project:
+- https://drawing-mini-app-bot.netlify.app/
 
-    2.2. Create a Telegram Bot using BotFather (https://t.me/botfather)
-        2.2.1 Create a bot using BotFather (https://t.me/botfather)
-        2.2.2 Copy the bot token
-        2.2.3. Paste the bot token into the file `App/Config/config.py` (BOT_TOKEN variable)
+### 2. Setting variables to the bot:
+#### 2.1. Paste the webapp url into the file `App/Utils/Constants.py` (WEBAPP_URL variable)
 
-    2.3. Create a Telegram Group or Channel and add its id into `App/Utils/Constants.py` (CLOUD_ID variable)
-        2.3.1. Remember to add the bot into the group or channel
+#### 2.2. Create a Telegram Bot using BotFather (https://t.me/botfather)
+##### 2.2.1 Create a bot using BotFather (https://t.me/botfather)
+##### 2.2.2 Copy the bot token
+##### 2.2.3. Paste the bot token into the file `App/Config/config.py` (BOT_TOKEN variable)
 
-3. Run the bot using the following command at top directory: `python -m bot.py`
+#### 2.3. Create a Telegram Group or Channel and add its id into `App/Utils/Constants.py` (CLOUD_ID variable)
+#### 2.3.1. Remember to add the bot into the group or channel
+
+### 3. Run the bot using the following command at top directory: `python -m bot.py`
 
 
 
