@@ -17,8 +17,8 @@ Learn as a developer:
 
 ## How to use (setup step-by-step)
 
-1. Deploy webapp directory into a web server or run it locally and use some tunnel service like ngrok to make it https.
-    ### 1.1. Ngrok like:
+### 1. Deploy webapp directory into a web server or run it locally and use some tunnel service like ngrok to make it https.
+    #### 1.1. Ngrok like:
         - to run a localhost server, you can use the following command at webapp directory: `python -m http.server 8080` (change 8080 to the port that you want to use)
         - you can use the following command: `ngrok http 8080` (change 8080 to the port that you are using)
         - it will generate a https url, that you can use to configure your bot.
