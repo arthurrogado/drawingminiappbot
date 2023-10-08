@@ -7,7 +7,7 @@
 
 // just to know where this functions are called from
 // but it is already global
-import app from "../../app.js"
+// import app from "../../app.js"
 // let getParams = app.getParams
 
 // get params just make an object with all url params:
@@ -40,6 +40,8 @@ drawingsObj.find(drawing => {
         document.querySelector('.qrcode img').src = generateQrCode(`drawing_id=${drawing.id}`)
     }
 })
+
+// EDIT
 
 let editButton = document.querySelector('#edit')
 
@@ -164,9 +166,20 @@ document.querySelector('#drawingIdCard').addEventListener('click', copyToClipboa
 
 // DRAW
 document.querySelector('#doDrawing').addEventListener('click', () => {
-    // send to backend that the user wants to draw
-    webapp.sendData(JSON.stringify({
-        action: 'do_drawing',
-        drawing_id: getParams()['id_view_drawing']
-    }))
+    // Verify if the number of participants is greater than 0
+    if(document.querySelector('#numberOfParticipants').innerHTML == 0) {
+        webapp.showPopup({title: 'Error', message: 'No participants in this drawing'})
+        return
+    }
+
+    // Open confirmation popup
+    webapp.showConfirm('Are you sure you want to draw?', (press) => {
+        if(!press) return
+        // send to backend that the user wants to draw
+        webapp.sendData(JSON.stringify({
+            action: 'do_drawing',
+            drawing_id: getParams()['id_view_drawing']
+        }))
+    })
+
 })

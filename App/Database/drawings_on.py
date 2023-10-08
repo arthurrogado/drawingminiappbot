@@ -48,6 +48,13 @@ class DrawingOn(DB):
             f"id_drawing = {drawingid}"
         ))
     
+    def get_users_in_drawing(self, drawingid):
+        return self.select(
+            'drawings_on',
+            ['id_user', 'id_drawing'],
+            f"id_drawing = {drawingid}"
+        )
+    
     def remove_drawing_on(self, userid, drawingid):
         return self.delete(
             'drawings_on',

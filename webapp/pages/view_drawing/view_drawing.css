@@ -45,3 +45,8 @@
     filter: brightness(1.05);
     border: 1px dashed var(--tg-theme-link-color);
 }
+
+.card {
+    background-color: var(--tg-theme-secondary-bg-color);
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+}

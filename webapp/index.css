@@ -5,14 +5,14 @@
     --tg-theme-button-text-color: #101828; 
     --tg-theme-hint-color: #5c7186; 
     --tg-theme-link-color: #f8c098; 
-    --tg-theme-secondary-bg-color: #060e1e; 
+    --tg-theme-bg-color: #060e1e; 
     --tg-theme-text-color: #e6e8ec; 
     --tg-viewport-height: 496px; 
     --tg-viewport-stable-height: 496px;
 }
 
 main {
-    background-color: var(--tg-theme-secondary-bg-color);
+    background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
     font-family: "Roboto", sans-serif;
     min-height: var(--tg-viewport-height);
@@ -23,9 +23,9 @@ main {
 }
 
 .card {
-    background-color: var(--tg-theme-bg-color);
-    border-radius: 4px;
-    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+    /* background-color: var(--tg-theme-secondary-bg-color); */
+    /* box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16); */
+    border-radius: 10px;
     padding: 16px;
     width: 100%;
     max-width: 400px;
@@ -58,7 +58,7 @@ main > .card:last-of-type {
 }
 .form input, .form textarea, .form select {
     resize: none;
-    background-color: var(--tg-theme-bg-color);
+    background-color: var(--tg-theme-secondary-bg-color);
     border: 1px solid #00000000;
     border-bottom: 1px solid var(--tg-theme-hint-color);
     outline: 1px solid rgba(255, 0, 0, 0);

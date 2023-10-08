@@ -1,5 +1,8 @@
-config.py
+config
+constants.py
+database.db
+App/Database/database.db
+squarecloud.app
+
 venv/
 __pycache__/
-squarecloud.app
-database.db

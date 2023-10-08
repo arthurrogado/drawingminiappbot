@@ -23,6 +23,7 @@ from App.Components.enter_drawing import EnterDrawing
 from App.Components.leave_drawing import LeaveDrawing
 from App.Components.do_drawing import DoDrawing
 from App.Components.delete_my_drawing import DeleteMyDrawging
+from App.Components.send_message_to_all import SendMessageToAll
 
 import json
 
@@ -56,7 +57,7 @@ def answer(msg):
         elif action == "do_drawing":
             DoDrawing(bot, userid, response)
         elif action == "send_message_to_all":
-            SendMessageToAll(bot, userid, response)
+            SendMessageToAll(bot, userid, response) # response = {'message': 'message to send', 'drawing_id': 'id of the drawing'}
 
     except Exception as e:
         print("#Error", e)
@@ -103,7 +104,7 @@ def receber(msg: Message):
         msg_about += "You can create drawings and invite people to participate.\n"
         msg_about += "You can also participate in drawings created by other people.\n\n"
         msg_about += "This bot was created by @arthurrogado\n"
-        msg_about += "Source code: soon"
+        msg_about += "Source code: https://github.com/arthurrogado/drawingminiappbot"
         bot.send_message(userid, msg_about)
         return
     
