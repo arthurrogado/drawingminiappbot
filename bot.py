@@ -3,7 +3,8 @@ from telebot.types import (
     Message,
     BotCommand,
     BotCommandScopeAllPrivateChats,
-    BotCommandScopeChat
+    BotCommandScopeChat,
+    MenuButtonCommands
 )
 
 from App.Database.database import DB
@@ -28,6 +29,17 @@ from App.Components.send_message_to_all import SendMessageToAll
 import json
 
 bot = TeleBot(BOT_TOKEN)
+
+
+# Set basic commands (start, about, help)
+basic_commands = [
+    BotCommand("start", "🤖 Start botttttt"),
+    BotCommand("about", "❓ About the bot"),
+    BotCommand("help", "📚 Help")
+]
+bot.set_my_commands(basic_commands, scope = BotCommandScopeAllPrivateChats() )
+bot.set_chat_menu_button(menu_button=MenuButtonCommands(type="commands"))
+
 
 # WebApp messages handler
 @bot.message_handler(content_types="web_app_data")
@@ -80,14 +92,6 @@ def teste(msg):
 @bot.message_handler(func= lambda m: True)
 def receber(msg: Message):
     userid = msg.from_user.id
-
-    # Set basic commands (start, about, help)
-    basic_commands = [
-        BotCommand("start", "🤖 Start bot"),
-        BotCommand("about", "❓ About the bot"),
-        BotCommand("help", "📚 Help")
-    ]
-    bot.set_my_commands(basic_commands, scope = BotCommandScopeChat(userid))
 
     # custom start message
     split = msg.text.split()
