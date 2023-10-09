@@ -12,7 +12,7 @@ Usability:
 
 Learn as a developer:
 - How to integrate a Telegram Bot with a Telegram Mini App (webapp)
-- Miniframework for server and client side (see this template:)
+- Miniframework for server and client side (see this [template](https://github.com/arthurrogado/miniframework_miniapp/): )
     - Server side: python bot with pyTelegramBotAPI, as well as a simple CRUD and a miniframework (organize your code in a simple but strong way, using modules and classes, placing your code in the right place)
     - Client side: vanilla javascript, in a very simple "miniframework" to develop a SPA (Single Page Application) like app.
 

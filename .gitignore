@@ -6,3 +6,5 @@ squarecloud.app
 
 venv/
 __pycache__/
+
+test.html
