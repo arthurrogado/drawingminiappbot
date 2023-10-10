@@ -17,7 +17,7 @@ Usability:
 
 Learn as a developer:
 - How to integrate a Telegram Bot with a Telegram Mini App (webapp)
-- Miniframework for server and client side (see this [template](https://github.com/arthurrogado/miniframework_miniapp/): )
+- Miniframework for server and client side (see this [template](https://github.com/arthurrogado/miniapp_miniframework): )
     - Server side: python bot with pyTelegramBotAPI, as well as a simple CRUD and a miniframework (organize your code in a simple but strong way, using modules and classes, placing your code in the right place)
     - Client side: vanilla javascript, in a very simple "miniframework" to develop a SPA (Single Page Application) like app.
 
@@ -44,9 +44,10 @@ or
 ### 2. Setting variables to the bot:
 - 2.1. Paste the webapp url into the file `App/Utils/Constants.py` (WEBAPP_URL variable)
 
-- 2.2. Create a Telegram Bot using BotFather (https://t.me/botfather)
+- 2.2. Create a Telegram Bot using [BotFather](https://t.me/botfather)
 
     - 2.2.1 Create a bot using BotFather (https://t.me/botfather)
+        > /newbot > choose a name (anyone) > choose a username (unique and must end with 'bot')
     - 2.2.2 Copy the bot token
     - 2.2.3. Paste the bot token into the file `App/Config/config.py` (BOT_TOKEN variable)
 
