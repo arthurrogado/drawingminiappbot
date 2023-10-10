@@ -4,7 +4,7 @@ CLOUD_ID = '-1001859866640' # Channel ID, change to yours
 # Admin
 ADMIN_ID = '850446631' # If you need to use it
 
-URL_WEBAPP = "https://drawing-mini-app-bot.netlify.app#" # changes to your webapp url if you want to
+URL_WEBAPP = "https://drawing-mini-app-bot.netlify.app/#" # changes to your webapp url if you want to
 
 # Default routes in webapp
 URL_HOME = URL_WEBAPP + "home"
