@@ -6,6 +6,11 @@ The bot code can lead you to understand about how integrate a bot with a mini ap
 This project is built using Python, using @pyTelebramBotAPI library, that runs a Telebram Bot (server side), and Vanilla Javascript to implement a Telegram Mini App (client side).
 It also uses some google services, like Material Icons and Google Charts for QRCode.
 
+### Details for contest:
+
+- Bot sample: https://t.me/drawing_miniapp_bot
+- Webapp sample: https://drawing-mini-app-bot.netlify.app/
+
 ## Features
 Usability:
 - Create, manage, participate and draw winners for a drawing raffle.
