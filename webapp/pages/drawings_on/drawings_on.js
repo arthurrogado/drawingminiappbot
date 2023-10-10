@@ -19,9 +19,12 @@ drawings_on.forEach(drawing => {
     let row = document.createElement('tr')
     // find the drawing info in drawings_on_info with the same id as the drawing that we are iterating and user is participating
     let drawing_info = drawings_on_info.find(drawing_info => drawing_info.id == drawing.id_drawing)
+    console.log('DRAWING INFO (find)')
+    console.log(drawing_info)
+    if(!drawing_info) return
     row.innerHTML = `
         <td>
-            ${drawing_info.name}
+            ${drawing_info?.name}
         </td>
     `
     row.addEventListener('click', () => {
