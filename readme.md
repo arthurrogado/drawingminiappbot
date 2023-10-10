@@ -1,6 +1,7 @@
 # Drawing Mini App Bot - Start guide
 
-This is a simple drawing (like a raffle) bot, that can help manage, participate and draw winners.
+This is a simple drawing (like a raffle) bot, that can help manage, participate and draw winners. Miniapp provides for user a simple menu, where it's possible to enter a drawing, see drawings that user is participating, and see drawings that user created, as well as create new drawings. Looking at owner's perspective of a drawing page, it's possible to edit and delete it, or even send participants a message. It's also possible to draw winner.
+
 The bot code can lead you to understand about how integrate a bot with a mini app (webapp).
 
 This project is built using Python, using @pyTelebramBotAPI library, that runs a Telebram Bot (server side), and Vanilla Javascript to implement a Telegram Mini App (client side).
@@ -8,7 +9,7 @@ It also uses some google services, like Material Icons and Google Charts for QRC
 
 ### Details for contest:
 
-- Bot sample: https://t.me/drawing_miniapp_bot
+- Bot sample: https://t.me/drawminiappbot
 - Webapp sample: https://drawing-mini-app-bot.netlify.app/
 
 ## Features
