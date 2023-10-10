@@ -33,7 +33,7 @@ bot = TeleBot(BOT_TOKEN)
 
 # Set basic commands (start, about, help)
 basic_commands = [
-    BotCommand("start", "🤖 Start botttttt"),
+    BotCommand("start", "🤖 Start bot"),
     BotCommand("about", "❓ About the bot"),
     BotCommand("help", "📚 Help")
 ]

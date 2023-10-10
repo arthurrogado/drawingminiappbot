@@ -1,5 +1,6 @@
 const webapp = window.Telegram.WebApp;
 window.webapp = webapp
+// webapp.enableClosingConfirmation()
 
 function makeUrlParams(params) {
     // this function receives an object and returns a string with the url params
@@ -45,8 +46,13 @@ const getStartParams = () => {
 // NAVIGATION
 
 const navigateTo = (route, params = null) => {
+
     // This function changes the url and calls the router function to process the url
     webapp.BackButton.show();
+
+    // remove all listeners from the main button
+    webapp.MainButton.onClick(() => {})
+
     // join params (object) and getParams() (object too)
     // to maintain the params that are already in the url (like data from bot)
     let objParams = {...params, ...getStartParams()}
@@ -63,7 +69,7 @@ const router = async () => {
     // It can also be class and its methods
     const routes = [
         // { path: '/404', component: '404' },
-        { path: '/', redirect: '/home' },
+        { path: '/', redirect: 'home' },
         { path: 'home', component: 'home' },
         { path: 'register_drawing', component: 'register_drawing' },
         { path: 'my_drawings', component: 'my_drawings' },
@@ -85,6 +91,11 @@ const router = async () => {
 
     if (!match) {
         navigateTo('home', getParams())
+        return
+    }
+
+    if(match.route.redirect) {
+        navigateTo(match.route.redirect, getParams())
         return
     }
 
@@ -134,6 +145,18 @@ const verifyRequiredFields = (formClass = '.form') => {
     })
     return valid
 }
+
+function defineMainButtonCallback(callback) {
+    // removes what is the current main button callback
+    // and set the new one. It's used to avoid multiple callbacks on MainButton.
+    // It's like a reset MainButton
+    webapp.MainButton.offClick(window.currentMainButtonCallback)
+    window.currentMainButtonCallback = callback
+    webapp.MainButton.onClick(callback)
+    webapp.MainButton.color = webapp.themeParams.button_color
+}
+
+window.defineMainButtonCallback = defineMainButtonCallback;
 
 window.verifyRequiredFields = verifyRequiredFields;
 window.onpopstate = router;

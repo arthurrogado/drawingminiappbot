@@ -18,12 +18,10 @@ let drawingsTable = document.querySelector('#drawingsTable')
 my_drawings.forEach(drawing => {
     let row = document.createElement('tr')
     row.innerHTML = `
-        <td>${drawing.id}</td>
-        <td>${drawing.name}</td>
+        <td>${drawing?.id}</td>
+        <td>${drawing?.name}</td>
     `
     row.addEventListener('click', () => {
-        // alert('Nada ainda aqui :(')
-        console.log('*** VIEW DRAWING ' + drawing.id)
         navigateTo('view_drawing', {id_view_drawing: drawing.id})
     })
     drawingsTable.querySelector('tbody').appendChild(row)

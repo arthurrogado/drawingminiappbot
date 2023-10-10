@@ -1,6 +1,7 @@
 from telebot import TeleBot
 from App.Components.__component import BaseComponent
 from App.Database.drawings_on import DrawingOn
+from telebot.formatting import escape_markdown
 
 class SendMessageToAll(BaseComponent):
     def __init__(self, bot: TeleBot, userid=None, data=None) -> None:
@@ -19,7 +20,8 @@ class SendMessageToAll(BaseComponent):
         count_msg = self.bot.send_message(self.userid, f"⌛️ Sending message to {total} users! This may take a while...")
         for user in users:
             try:
-                self.bot.send_message(user['id_user'], self.data['message'])
+                message = f"📩 Message from the drawing organizer [*Drawing ID*: `{self.data['drawing_id']}`]:\n\n { escape_markdown(self.data['message']) }"
+                self.bot.send_message(user['id_user'], message, parse_mode='MarkdownV2')
                 count += 1
                 self.bot.edit_message_text(f"⌛️ Sending message to {total} users! This may take a while...\n\n{count}/{total} users sent!", self.userid, count_msg.message_id)
             except:
@@ -28,3 +30,4 @@ class SendMessageToAll(BaseComponent):
                 pass
         
         self.bot.send_message(self.userid, f"✅ Message sent to {count}/{total} users!\n\n{count_failed} users failed!")
+        self.goMainMenu(self.userid)

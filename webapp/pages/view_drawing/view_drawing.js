@@ -45,6 +45,24 @@ drawingsObj.find(drawing => {
 
 let editButton = document.querySelector('#edit')
 
+// In this cases, it's good to separate function that will be called from MainButton press
+// So it's possible to pass it's reference for window.defineMainButtonCallback (see app.js)
+function editDrawing() {
+    // send data to backend
+    if(!verifyRequiredFields()) {
+        webapp.showPopup({title: 'Error', message: 'Fill all required fields'})
+        return
+    }
+    const data = new FormData(document.querySelector('.form'))
+    const json = {
+        'action': 'update_drawing',
+        'id': getParams()['id_view_drawing'],
+        'name': data.get('name'),
+        'description': data.get('description'),
+    }
+    webapp.sendData(JSON.stringify(json))
+}
+
 const startEdit = () => {
     // enable the fields
     document.querySelectorAll('.form > *').forEach(element => {
@@ -63,37 +81,32 @@ const startEdit = () => {
     
     webapp.MainButton.show()
     webapp.MainButton.setText('SAVE')
+    
+    window.defineMainButtonCallback(editDrawing)
+    
+    // setting color has to be after defineMainButtonCallback, because it resets the color
     webapp.MainButton.color = '#13e95a'
-    webapp.MainButton.onClick(() => {
-        if(!verifyRequiredFields()) {
-            webapp.showPopup({title: 'Error', message: 'Fill all required fields'})
-            return
-        }
-        const data = new FormData(document.querySelector('.form'))
-        const json = {
-            'action': 'update_drawing',
-            'id': getParams()['id_view_drawing'],
-            'name': data.get('name'),
-            'description': data.get('description'),
-        }
-        webapp.sendData(JSON.stringify(json))
-    })
 }
 
 const endEdit = () => {
     //- Cancel editing process
     // hide the main button
     webapp.MainButton.hide()
+    
+    // just to make sure, but maybe it's not necessary,
+    // because in other situation mainbutton has already been offclicked the current callback
+    webapp.MainButton.offClick(window.currentMainButtonCallback) 
 
     document.querySelectorAll('.card').forEach(card => {
         card.style.display = ''
     })
 
     // disable the fields
-    document.querySelectorAll('.form > *').forEach(element => {
+
+    document.querySelectorAll('[name=name], [name=description]').forEach(element => {
         element.setAttribute('disabled', 'true')
-        webapp.MainButton.hide()
     })
+
     // change the button color to the default
     editButton.style.background = webapp.themeParams.button_color
     editButton.innerHTML = 'Edit'
@@ -182,4 +195,52 @@ document.querySelector('#doDrawing').addEventListener('click', () => {
         }))
     })
 
+})
+
+// SEND MESSAGE
+
+function sendMessage() {
+
+    let message = document.querySelector('#sendMessage [name=message]').value
+
+    webapp.showPopup({
+        title: 'Send message',
+        message: 'Are you sure you want to send this message to all participants?',
+        buttons: [
+            {
+                text: 'Yes',
+                type: 'destructive',
+                id: 'sendMessageAction'
+            },
+            {
+                text: 'No',
+            }
+        ]
+    }, action => {
+        if(action == 'sendMessageAction') {
+            webapp.sendData(JSON.stringify({
+                action: 'send_message_to_all',
+                drawing_id: getParams()['id_view_drawing'],
+                message: message
+            }))
+        }
+    })
+    
+}
+
+let sendMessageInput = document.querySelector('#sendMessage [name=message]')
+sendMessageInput.addEventListener('input', () => {
+    if(sendMessageInput.value.length > 0) {
+        
+        // Reference for the current mainbutton callback
+        // window.currentMainButtonCallback = sendMessage
+        // webapp.MainButton.onClick(sendMessage)
+        window.defineMainButtonCallback(sendMessage)
+        
+        webapp.MainButton.show()
+        webapp.MainButton.text = "Send message for all"
+
+    } else {
+        webapp.MainButton.hide()
+    }
 })
